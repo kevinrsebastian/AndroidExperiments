@@ -62,10 +62,42 @@ dependencies {
 
     /***** Test Dependencies *****/
 
-    /* AndroidX Test */
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+    /* AndroidX Core and Miscellaneous */
+    androidTestImplementation "androidx.test:core:1.5.0"
+    androidTestImplementation "androidx.test:core-ktx:1.5.0"
+    androidTestImplementation "androidx.test:rules:1.5.0"
+    androidTestImplementation "androidx.test:runner:1.5.2"
+
+    /* AndroidX Assertions */
     androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.ext:truth:1.5.0"
+    testImplementation "androidx.test.ext:truth:1.5.0"
+
+    /* AndroidX Espresso */
+    // https://developer.android.com/training/testing/espresso
+    def espresso_version = "3.5.1"
+    androidTestImplementation("androidx.test.espresso:espresso-core:$espresso_version")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:$espresso_version")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:$espresso_version")
+
+    /* DataFactory */
+    def datafactory_version = "0.8"
+    androidTestImplementation "org.fluttercode.datafactory:datafactory:$datafactory_version"
+    testImplementation "org.fluttercode.datafactory:datafactory:$datafactory_version"
+
+    /* Hamcrest Matchers */
+    // http://hamcrest.org/JavaHamcrest/distributables
+    androidTestImplementation "org.hamcrest:hamcrest:2.2"
+    androidTestImplementation "org.hamcrest:hamcrest-library:2.2"
+    testImplementation "org.hamcrest:hamcrest:2.2"
+    testImplementation "org.hamcrest:hamcrest-library:2.2"
 
     /* JUnit */
     testImplementation "junit:junit:4.13.2"
+
+    /* Mockito */
+    def mockito_version = "5.2.0"
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
 }
