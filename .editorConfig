@@ -1,0 +1,9 @@
+[*.{kt,kts}]
+max_line_length=120
+
+########################################################################################################################
+# Disabled Ktlint rules
+# https://pinterest.github.io/ktlint/faq/#how-do-i-globally-disable-a-rule
+
+ktlint_standard_chain-wrapping = disabled
+########################################################################################################################

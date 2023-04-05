@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun fakeProcess(callBack: () -> Unit) {
         Completable.complete()
             .delay(3000, TimeUnit.MILLISECONDS)
-            .subscribe(object: CompletableObserver {
+            .subscribe(object : CompletableObserver {
                 override fun onSubscribe(d: Disposable) {
                     compositeDisposable.add(d)
                 }
