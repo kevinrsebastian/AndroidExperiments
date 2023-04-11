@@ -1,5 +1,7 @@
 plugins {
     id "com.android.application"
+    id "com.google.dagger.hilt.android"
+    id "kotlin-kapt"
     id "org.jetbrains.kotlin.android"
 }
 
@@ -13,7 +15,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kevinrsebastian.androidex.CustomTestRunner"
     }
 
     buildTypes {
@@ -53,6 +55,14 @@ dependencies {
 
     /* AndroidX Splash Screen */
     implementation "androidx.core:core-splashscreen:1.0.0"
+
+    /* Hilt DI */
+    // https://developer.android.com/training/dependency-injection/hilt-android
+    def hilt_version = "2.44"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
 
     /* Material Design */
     // https://material.io/develop/android/docs/getting-started
