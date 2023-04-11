@@ -1,23 +1,33 @@
 package com.kevinrsebastian.androidex
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.Visibility.VISIBLE
-import androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
-import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.lifecycle.Lifecycle
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.launchActivity
+import androidx.test.espresso.intent.Intents
+import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.Rule
+import com.kevinrsebastian.androidex.directory.DirectoryActivity
+import com.kevinrsebastian.androidex.test.base.BaseInstrumentationTest
+import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
 
+@HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
-internal class MainActivityTest {
-    @get:Rule
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+internal class MainActivityTest : BaseInstrumentationTest() {
+    private lateinit var scenario: ActivityScenario<MainActivity>
+
+    @After
+    override fun tearDown() {
+        Intents.release()
+        scenario.close()
+    }
 
     @Test
     fun launchScreen() {
-        onView(withText("Hello World!")).check(matches(withEffectiveVisibility(VISIBLE)))
+        scenario = launchActivity()
+        Intents.intended(IntentMatchers.hasComponent(DirectoryActivity::class.java.name))
+        assert(scenario.state == Lifecycle.State.DESTROYED)
     }
 }

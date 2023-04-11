@@ -1,8 +1,10 @@
 package com.kevinrsebastian.androidex
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.kevinrsebastian.androidex.directory.DirectoryActivity
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.CompletableObserver
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -25,6 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Navigate to DirectoryActivity and finish
+        startActivity(Intent(this, DirectoryActivity::class.java))
+        this.finish()
     }
 
     override fun onDestroy() {
