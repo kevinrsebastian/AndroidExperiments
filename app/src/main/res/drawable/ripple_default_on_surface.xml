@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- onSurface ripple on surface background -->
+<ripple
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/onSurface_ripple">
+    <item android:id="@android:id/mask" android:drawable="@android:color/white"/>
+    <item android:id="@android:id/background" android:drawable="@color/md_theme_surface"/>
+</ripple>

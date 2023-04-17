@@ -31,4 +31,7 @@
     <color name="md_theme_surfaceTint">#00E0B6</color>
     <color name="md_theme_outlineVariant">#3F4945</color>
     <color name="md_theme_scrim">#000000</color>
+
+    <!-- Ripple Colors: 15% opacity of the base color -->
+    <color name="onSurface_ripple">#26E1E3E0</color>
 </resources>
