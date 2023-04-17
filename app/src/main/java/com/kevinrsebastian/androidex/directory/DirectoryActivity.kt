@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kevinrsebastian.androidex.R
 import com.kevinrsebastian.androidex.databinding.ActivityDirectoryBinding
+import com.kevinrsebastian.androidex.ui.CustomDividerItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
 /** An activity that displays and redirects to the other demo activities. */
@@ -44,6 +45,7 @@ class DirectoryActivity : AppCompatActivity() {
 
         // Directory List
         binding.directoryList.layoutManager = LinearLayoutManager(this)
+        binding.directoryList.addItemDecoration(CustomDividerItemDecoration(this))
         binding.directoryList.adapter = DirectoryListAdapter(directoryItems)
     }
 }
