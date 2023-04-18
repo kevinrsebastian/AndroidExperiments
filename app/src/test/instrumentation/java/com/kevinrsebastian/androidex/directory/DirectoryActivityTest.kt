@@ -32,7 +32,7 @@ internal class DirectoryActivityTest : BaseInstrumentationTest() {
     fun launchScreen() {
         scenario = launchActivity()
 
-        // Check directory titles are shown at the proper positiion
+        // Check directory titles are shown at the proper position
         for (i in 0 until DirectoryActivity.directoryItems.size) {
             val title = DirectoryActivity.directoryItems[i]
             onView(withId(R.id.directory_list))
